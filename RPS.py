@@ -1,10 +1,11 @@
+# patterns storage
 steps = {}
 
 def player(prev_play, opponent_history=[]):
     if prev_play != "":
         opponent_history.append(prev_play)
 
-    n = 3
+    n = 3 # length of the pattern to look back
 
     hist = opponent_history
 
@@ -34,5 +35,6 @@ def player(prev_play, opponent_history=[]):
 
     return guess
 
+# function to join a list of moves into a single string
 def join(moves):
     return "".join(moves)
