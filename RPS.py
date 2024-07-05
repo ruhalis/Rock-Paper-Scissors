@@ -1,24 +1,9 @@
 steps = {}
 
-
-# the strategy is similar to abbey, but we look backs harder than her.
-# she only look back 2 steps, find most frequently pattern of all 2 moves,
-#
-# Other strategies:
-#
-# - quincy repeat 5 moves
-# - kris always counter our last moves, hence, once we establed a patterns, he
-# is not a problem
-# - mrugresh look for our top pick in last 10 moves, hence, similar to kris,
-# once we establed a pattern, we're in control.
 def player(prev_play, opponent_history=[]):
     if prev_play != "":
         opponent_history.append(prev_play)
 
-    # Interestingly, 3 to 6 works best, as in we win more than 60%.
-    # If n is larger than 6, we start to get terrible result.
-    # I guess it's becauase we don't have enough data to predict once n get that
-    # larger, we only play 1000 games.
     n = 3
 
     hist = opponent_history
@@ -48,7 +33,6 @@ def player(prev_play, opponent_history=[]):
             guess = "R"
 
     return guess
-
 
 def join(moves):
     return "".join(moves)
